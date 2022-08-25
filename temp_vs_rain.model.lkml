@@ -27,3 +27,4 @@ explore: avg_rain_2020_locations {
 }
 explore: avg_temps_2020_locations {}
 explore: yearly_lighning_2020 {}
+explore: avg_temps_2020 {}
