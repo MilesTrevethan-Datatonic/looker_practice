@@ -6,9 +6,16 @@ view: +yearly_lighning_2020 {
     sql_longitude:${x} ;;
 
   }
+
   measure: average_strikes {
     sql: ${num_strikes} ;;
     type: average
 
     }
+
+  measure: total_strikes {
+    sql: ${num_strikes} ;;
+    type: sum
+  }
+
 }
