@@ -18,4 +18,5 @@ view: +yearly_lighning_2020 {
     type: sum
   }
 
+
 }
