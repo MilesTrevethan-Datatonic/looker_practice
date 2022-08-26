@@ -10,7 +10,6 @@ view: +yearly_lighning_2020 {
   measure: average_strikes {
     sql: ${num_strikes} ;;
     type: average
-
     }
 
   measure: total_strikes {
