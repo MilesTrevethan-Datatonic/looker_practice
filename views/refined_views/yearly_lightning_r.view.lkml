@@ -4,9 +4,18 @@ view: +yearly_lighning_2020 {
     type: location
     sql_latitude:${y} ;;
     sql_longitude:${x} ;;
+
   }
+
+  measure: average_strikes {
+    sql: ${num_strikes} ;;
+    type: average
+
+    }
+
   measure: total_strikes {
     sql: ${num_strikes} ;;
     type: sum
   }
+
 }
