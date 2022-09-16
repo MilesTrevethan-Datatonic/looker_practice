@@ -29,6 +29,10 @@ view: average_rain_bucketed {
   dimension: count {
     type: number
   }
+  dimension: rounded_rain {
+    type:  number
+    sql: round(${average_rain}) ;;
+  }
   measure: num_locations {
     type:  count
   }
@@ -68,6 +72,10 @@ view: average_temps_bucketed {
   dimension: count {
     type: number
   }
+  dimension: rounded_temp {
+    type:  number
+    sql: round(${average_temp},-2) ;;
+  }
   measure: num_locations {
     type:  count
   }
@@ -106,6 +114,10 @@ view: average_lightning_bucketed {
   }
   dimension: count {
     type: number
+  }
+  dimension: rounded_strikes {
+    type:  number
+    sql: round(${average_strikes}) ;;
   }
   measure: num_locations {
     type:  count
