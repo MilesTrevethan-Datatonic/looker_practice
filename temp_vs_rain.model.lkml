@@ -18,13 +18,23 @@ include: "/**/*.view.lkml"                 # include all views in this project
 #     sql_on: ${users.id} = ${orders.user_id} ;;
 #   }
 # }
-explore: lightning_with_temps_rain_2020_2 {}
-explore: avg_rain_2020_locations {
-     join: avg_temps_2020_locations {
-     relationship: one_to_one
-     sql_on: ${avg_rain_2020_locations.lat} = ${avg_temps_2020_locations.lat} AND ${avg_rain_2020_locations.lon} = ${avg_temps_2020_locations.lon};;
-   }
-}
+
+explore: avg_rain_2020_locations {}
 explore: avg_temps_2020_locations {}
-explore: yearly_lighning_2020 {}
-explore: avg_temps_2020 {}
+explore: yearly_lightning_2020 {}
+
+explore: weather_joined{
+  view_name: average_rain_bucketed
+  join: average_temps_bucketed {
+    type: full_outer
+    relationship: one_to_one
+    sql_on: ${average_rain_bucketed.location_grouped::latitude}=${average_temps_bucketed.location_grouped::latitude} and
+    ${average_rain_bucketed.location_grouped::longitude}=${average_temps_bucketed.location_grouped::longitude} ;;
+  }
+  join: average_lightning_bucketed {
+    type: full_outer
+    relationship: one_to_one
+    sql_on: ${average_rain_bucketed.location_grouped::latitude}=${average_lightning_bucketed.location_grouped::latitude} and
+    ${average_rain_bucketed.location_grouped::longitude}=${average_lightning_bucketed.location_grouped::longitude} ;;
+  }
+}

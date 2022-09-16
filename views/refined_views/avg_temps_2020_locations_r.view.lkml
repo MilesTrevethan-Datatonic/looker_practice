@@ -1,5 +1,5 @@
-include: "/views/auto_views/avg_rain_2020_locations.view"
-view: +avg_rain_2020_locations {
+include: "/views/auto_views/avg_temps_2020_locations.view"
+view: +avg_temps_2020_locations {
   dimension: x_grouped {
     type: number
     sql:round(2*${lon})/2  ;;
@@ -13,8 +13,8 @@ view: +avg_rain_2020_locations {
     sql_latitude: ${y_grouped};;
     sql_longitude: ${x_grouped} ;;
   }
-  measure: average_rain {
-    sql: ${avg_prcp} ;;
+  measure: average_temp {
+    sql: ${avg_temp} ;;
     type: average
   }
 }

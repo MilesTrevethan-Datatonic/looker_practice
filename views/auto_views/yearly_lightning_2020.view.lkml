@@ -1,4 +1,4 @@
-view: yearly_lighning_2020 {
+view: yearly_lightning_2020 {
   sql_table_name: `datatonic-analytics-sandbox.geog_data.yearly_lighning_2020`
     ;;
 
