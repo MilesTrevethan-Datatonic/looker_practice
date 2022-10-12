@@ -19,9 +19,7 @@ include: "/**/*.view.lkml"                 # include all views in this project
 #   }
 # }
 
-explore: avg_rain_2020_locations {}
-explore: avg_temps_2020_locations {}
-explore: yearly_lightning_2020 {}
+explore: climate_datapoints {}
 
 explore: weather_joined{
   view_name: average_rain_bucketed
@@ -38,3 +36,7 @@ explore: weather_joined{
     ${average_rain_bucketed.location_grouped::longitude}=${average_lightning_bucketed.location_grouped::longitude} ;;
   }
 }
+
+explore: avg_temps_2020_locations {}
+explore: avg_rain_2020_locations {}
+explore: yearly_lightning_2020 {}

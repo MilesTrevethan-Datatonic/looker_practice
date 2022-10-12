@@ -17,4 +17,8 @@ view: +avg_rain_2020_locations {
     sql: ${avg_prcp} ;;
     type: average
   }
+  measure: average_elevation {
+    type: average
+    sql: ${elevation} ;;
+  }
 }

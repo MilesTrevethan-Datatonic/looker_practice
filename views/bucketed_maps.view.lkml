@@ -8,6 +8,7 @@ view: average_rain_bucketed {
       column: x_grouped {}
       column: y_grouped {}
       column: average_rain {}
+      column: average_elevation {}
       column: count {}
     }
   }
@@ -26,12 +27,19 @@ view: average_rain_bucketed {
   dimension: average_rain {
     type: number
   }
+  dimension: average_elevation {
+    type:  number
+  }
   dimension: count {
     type: number
   }
   dimension: rounded_rain {
     type:  number
     sql: round(${average_rain}) ;;
+  }
+  dimension: rounded_elevation {
+    type:  number
+    sql: round(5*${average_elevation},-2)/5 ;;
   }
   measure: num_locations {
     type:  count
@@ -44,6 +52,10 @@ view: average_rain_bucketed {
     type:  average
     sql: ${average_rain} ;;
   }
+  measure: averaged_elevation {
+    type:  average
+    sql: ${average_elevation} ;;
+  }
 }
 
 view: average_temps_bucketed {
@@ -52,6 +64,7 @@ view: average_temps_bucketed {
       column: x_grouped {}
       column: y_grouped {}
       column: average_temp {}
+      column: average_elevation {}
       column: count {}
     }
   }
@@ -69,12 +82,20 @@ view: average_temps_bucketed {
   dimension: average_temp {
     type: number
   }
+  dimension: average_elevation {
+    type:  number
+  }
   dimension: count {
     type: number
   }
   dimension: rounded_temp {
     type:  number
-    sql: round(${average_temp},-2) ;;
+    sql: round(${average_temp},0) ;;
+  }
+
+  dimension: rounded_elevation {
+    type:  number
+    sql: round(5*${average_elevation},-2)/5 ;;
   }
   measure: num_locations {
     type:  count
@@ -86,6 +107,10 @@ view: average_temps_bucketed {
   measure: averaged_temp {
     type:  average
     sql: ${average_temp} ;;
+  }
+  measure: averaged_elevation {
+    type:  average
+    sql: ${average_elevation} ;;
   }
 }
 
