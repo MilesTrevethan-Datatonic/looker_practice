@@ -1,5 +1,10 @@
 include: "/views/auto_views/climate_datapoints.view"
 view: +climate_datapoints {
+  dimension: location {
+    type: location
+    sql_latitude: ${latitude};;
+    sql_longitude: ${longitude} ;;
+  }
   dimension: lon_grouped {
     type: number
     sql:round(${longitude}/1.5) * 1.5 ;;
